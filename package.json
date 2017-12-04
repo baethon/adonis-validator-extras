@@ -1,0 +1,25 @@
+{
+  "name": "@baethon/adonis-form-requests",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Radoslaw Mejer <radmen@radmen.info>",
+  "license": "MIT",
+  "dependencies": {
+    "ramda": "^0.25.0"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "husky": "^0.14.3",
+    "mocha": "^4.0.1",
+    "standard": "^10.0.3"
+  },
+  "scripts": {
+    "test": "mocha test/*.spec.js",
+    "lint": "standard",
+    "lint:fix": "standard --fix",
+    "prepush": "npm run lint",
+    "tag:patch": "npm version patch -m 'chore(package): bump version to %s'",
+    "tag:minor": "npm version minor -m 'chore(package): bump version to %s'",
+    "tag:major": "npm version major -m 'chore(package): bump version to %s'"
+  }
+}
