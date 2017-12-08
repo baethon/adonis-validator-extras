@@ -5,6 +5,7 @@
   "author": "Radoslaw Mejer <radmen@radmen.info>",
   "license": "MIT",
   "dependencies": {
+    "node-exceptions": "^2.0.2",
     "ramda": "^0.25.0"
   },
   "devDependencies": {

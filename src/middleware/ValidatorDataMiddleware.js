@@ -5,7 +5,6 @@ const utils = require('../utils')
 class ValidatorDataMiddleware {
   async handle (ctx, next, validator) {
     const validatorName = Array.isArray(validator) ? validator[0] : validator
-
     const validatorInstance = resolver.forDir('validators').resolve(validatorName)
 
     if (!R.isEmpty(validatorInstance.rules)) {
