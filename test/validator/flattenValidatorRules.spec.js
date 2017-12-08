@@ -1,5 +1,5 @@
 const chai = require('chai')
-const flattenRules = require('../../src/validator/flattenRules')
+const flattenValidatorRules = require('../../src/validator/flattenValidatorRules')
 
 const { expect } = chai
 
@@ -15,9 +15,9 @@ class Dummy {
   }
 }
 
-describe('validator | flattenRules', () => {
+describe('validator | flattenValidatorRules', () => {
   it('lazy flattens rules getter', () => {
-    const F = flattenRules(Dummy)
+    const F = flattenValidatorRules(Dummy)
 
     const Validator = new F()
     const expected = {
