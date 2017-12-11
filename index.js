@@ -1,3 +1,3 @@
-const flattenValidatorRules = require('./src/validator/flattenValidatorRules')
+const flattenRules = require('./src/validator/flattenRules')
 
-module.exports = { flattenValidatorRules }
+module.exports = { flattenRules }
