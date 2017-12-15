@@ -1,9 +1,15 @@
 {
-  "name": "@baethon/adonis-form-requests",
+  "name": "@baethon/adonis-validator-extras",
+  "description": "Validator goodies for Adonis framework",
   "version": "1.0.0",
   "main": "index.js",
   "author": "Radoslaw Mejer <radmen@radmen.info>",
   "license": "MIT",
+  "keywords": [
+    "adonis",
+    "adonis-validation",
+    "indicative"
+  ],
   "dependencies": {
     "node-exceptions": "^2.0.2",
     "ramda": "^0.25.0"
