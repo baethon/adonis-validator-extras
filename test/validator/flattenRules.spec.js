@@ -19,16 +19,33 @@ describe('validator | flattenRules', () => {
   it('lazy flattens rules getter', () => {
     const F = flattenRules(Dummy)
 
-    const Validator = new F()
+    const validator = new F()
     const expected = {
       name: 'string',
       lastname: 'string',
       'family.*.name': 'string'
     }
 
-    expect(Validator.rules).to.deep.equal(expected)
+    expect(validator.rules).to.deep.equal(expected)
 
     // just to make sure that consequent calls return same result
-    expect(Validator.rules).to.deep.equal(expected)
+    expect(validator.rules).to.deep.equal(expected)
+  })
+
+  it('interpolates context', () => {
+    const F = flattenRules(class {
+      get rules () {
+        return { email: 'unique:users,email,id,{params.id}' }
+      }
+    })
+
+    const validator = new F()
+    validator.ctx = {
+      params: { id: 1 }
+    }
+
+    expect(validator.rules).to.deep.equal({
+      email: 'unique:users,email,id,1'
+    })
   })
 })

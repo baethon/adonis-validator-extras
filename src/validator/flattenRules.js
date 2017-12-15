@@ -1,5 +1,13 @@
 const R = require('ramda')
-const { flattenRules } = require('../utils')
+const { flattenRules, interpolateContext } = require('../utils')
+
+const interpolate = rules => function () {
+  return interpolateContext(rules, this.ctx)
+}
+
+const flattenWithInterpolate = R.compose(interpolate, flattenRules)
+
+const getRulesWith = (prototype, get) => Object.defineProperty(prototype, 'rules', { get })
 
 module.exports = validatorClass => {
   const { prototype } = validatorClass
@@ -9,13 +17,9 @@ module.exports = validatorClass => {
     return validatorClass
   }
 
-  const getRulesWith = fn => Object.defineProperty(prototype, 'rules', { get: fn })
-
-  getRulesWith(function () {
-    return R.tap(
-      R.compose(getRulesWith, R.always),
-      flattenRules(descriptor.get.call(this))
-    )
+  getRulesWith(prototype, function () {
+    getRulesWith(prototype, flattenWithInterpolate(descriptor.get.call(this)))
+    return this.rules
   })
 
   return validatorClass
