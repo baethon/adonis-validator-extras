@@ -34,12 +34,12 @@ const reduceRules = (rules, parentProp) => (carry, name) => {
     {},
     carry,
     isComplexRule(currentRules)
-      ? flattenRules(valueOf(currentRules), keyOf(currentRules, name, parentProp))
+      ? flattenObject(valueOf(currentRules), keyOf(currentRules, name, parentProp))
       : flattenLeaf(currentRules, name, parentProp)
   )
 }
 
-const flattenRules = (rules, parentProp = '') => Object.keys(rules)
+const flattenObject = (rules, parentProp = '') => Object.keys(rules)
   .reduce(reduceRules(rules, parentProp), {})
 
-module.exports = flattenRules
+module.exports = flattenObject

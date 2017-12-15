@@ -3,9 +3,9 @@ const utils = require('../../src/utils')
 
 const { expect } = chai
 
-describe('utils | flattenRules', () => {
+describe('utils | flattenObject', () => {
   it('flattens nested objects', () => {
-    const rules = utils.flattenRules({
+    const rules = utils.flattenObject({
       address: {
         street: 'required'
       }
@@ -17,7 +17,7 @@ describe('utils | flattenRules', () => {
   })
 
   it('flattens nested arrays of objects', () => {
-    const rules = utils.flattenRules({
+    const rules = utils.flattenObject({
       tags: [{
         name: 'string',
         and: [{
@@ -33,7 +33,7 @@ describe('utils | flattenRules', () => {
   })
 
   it('flattens nested arrays', () => {
-    const rules = utils.flattenRules({
+    const rules = utils.flattenObject({
       tags: ['string'],
       and: [{
         even: ['more']

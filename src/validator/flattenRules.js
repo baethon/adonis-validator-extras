@@ -1,11 +1,11 @@
 const R = require('ramda')
-const { flattenRules, interpolateContext } = require('../utils')
+const { flattenObject, interpolateContext } = require('../utils')
 
 const interpolate = rules => function () {
   return interpolateContext(rules, this.ctx)
 }
 
-const flattenWithInterpolate = R.compose(interpolate, flattenRules)
+const flattenWithInterpolate = R.compose(interpolate, flattenObject)
 
 const getRulesWith = (prototype, get) => Object.defineProperty(prototype, 'rules', { get })
 
