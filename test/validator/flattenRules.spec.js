@@ -35,7 +35,7 @@ describe('validator | flattenRules', () => {
   it('interpolates context', () => {
     const F = flattenRules(class {
       get rules () {
-        return { email: 'unique:users,email,id,{params.id}' }
+        return { email: 'unique:users,email,id,{{params.id}}' }
       }
     })
 

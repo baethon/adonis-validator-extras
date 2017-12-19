@@ -12,6 +12,7 @@
   ],
   "dependencies": {
     "node-exceptions": "^2.0.2",
+    "pope": "^2.0.2",
     "ramda": "^0.25.0"
   },
   "devDependencies": {

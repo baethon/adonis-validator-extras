@@ -6,7 +6,7 @@ const { expect } = chai
 describe('utils | interpolateContext', () => {
   it('interpolates context into object values', () => {
     const rules = {
-      name: 'unique:users,email,id,{params.id}',
+      name: 'unique:users,email,id,{{params.id}}',
       foo: 'required'
     }
 
@@ -22,7 +22,7 @@ describe('utils | interpolateContext', () => {
 
   it('interpolates multiple values', () => {
     const rules = {
-      name: 'unique:users,email,{query.field},{params.id}'
+      name: 'unique:users,email,{{query.field}},{{params.id}}'
     }
 
     const context = {
