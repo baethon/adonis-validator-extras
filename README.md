@@ -18,21 +18,19 @@ Package contains some extensions for [Adonis Validation](https://github.com/adon
 ## Installation
 
 1. Install package
+    ```bash
+    # via adonis
+    adonis install @baethon/adonis-validator-extras
 
-  ```bash
-  # via adonis
-  adonis install @baethon/adonis-validator-extras
-    
-  # or for Yarn users
-  adonis install --yarn @baethon/adonis-validator-extras
-    
-  # or via yarn
-  yarn add @baethon/adonis-validator-extras
-    
-  # or via npm
-  npm i @baethon/adonis-validator-extras
-  ```
-  
+    # or for Yarn users
+    adonis install --yarn @baethon/adonis-validator-extras
+
+    # or via yarn
+    yarn add @baethon/adonis-validator-extras
+
+    # or via npm
+    npm i @baethon/adonis-validator-extras
+    ```
 1. Add `@baethon/adonis-validator-extras/providers/ValidationExtenderProvider` to application providers
 
 ## Request extension
