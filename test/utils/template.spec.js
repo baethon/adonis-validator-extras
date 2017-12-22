@@ -24,4 +24,18 @@ describe('utils | template', () => {
 
     expect(utils.template(tmpl, data)).to.equal('Hello ')
   })
+
+  it('calls function', () => {
+    const data = {
+      person: {
+        getJon () {
+          return { name: 'Jon' }
+        }
+      }
+    }
+
+    const tmpl = 'Hello {{person.getJon().name}}'
+
+    expect(utils.template(tmpl, data)).to.equal('Hello Jon')
+  })
 })

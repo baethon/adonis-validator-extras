@@ -103,7 +103,7 @@ module.exports = flattenRules(Test)
 
 `flattenRules` will process rules only once. Results are cached which means that `rules` getter **will be static**.
 
-Flattened rules support string interpolation (using [pope](https://github.com/poppinss/pope)) of values from `ctx`:
+Flattened rules support string interpolation of values from `ctx`:
 
 ```js
 const { flattenRules } = require('@baethon/adonis-validator-extras')
@@ -118,6 +118,23 @@ class Test {
 
 module.exports = flattenRules(Test)
 ```
+
+It's also possible to call methods from context (without any arguments):
+
+```js
+const { flattenRules } = require('@baethon/adonis-validator-extras')
+
+class Test {
+  get rules () {
+    return {
+      email: 'unique:users,email,id,{{request.all().id}}'
+    }
+  }
+}
+
+module.exports = flattenRules(Test)
+```
+
 
 ## development
 

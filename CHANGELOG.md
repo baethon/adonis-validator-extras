@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 ### Added
+- Calling methods from context in interpolated string
 
 ### Fixed
 - Allow to interpolate values from Macroable
